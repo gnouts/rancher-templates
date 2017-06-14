@@ -1,42 +1,40 @@
-version: '2'
-services:
-  progress-appserver:
-    image: registry.ddev.fr/devops/docker-progress:latest
-    container_name: progress-appserver
-    volumes_from:
-      - source
-    environment:
-      - DLC=/usr/dlc
-      - APPLIC=/deal
-      - WRKDIR=/deal/travail
-    labels:
-       io.rancher.sidekicks: source
-    ports:
-      - "9191:9090"
+progress-appserver:
+  image: registry.ddev.fr/devops/docker-progress:latest
+  container_name: progress-appserver
+  volumes_from:
+    - source
+  environment:
+    - DLC=/usr/dlc
+    - APPLIC=/deal
+    - WRKDIR=/deal/travail
+  labels:
+     io.rancher.sidekicks: source
+  ports:
+    - "9191:9090"
 
-  tomcat:
-    image: registry.ddev.fr/devops/docker-tomcat:8.5-jre8
-    container_name: tomcat
-    volumes_from:
-      - source
-      - progress-appserver
-    labels:
-       io.rancher.sidekicks: source, progress-appserver
-    ports:
-      - "8181:8080"
+tomcat:
+  image: registry.ddev.fr/devops/docker-tomcat:8.5-jre8
+  container_name: tomcat
+  volumes_from:
+    - source
+    - progress-appserver
+  labels:
+     io.rancher.sidekicks: source, progress-appserver
+  ports:
+    - "8181:8080"
 
-  apache:
-    image: registry.ddev.fr/devops/docker-php:5.3-apache
-    container_name: apache
-    volumes_from:
-      - source
-    labels:
-       io.rancher.sidekicks: source  
-    ports:
-      - "81:80"
+apache:
+  image: registry.ddev.fr/devops/docker-php:5.3-apache
+  container_name: apache
+  volumes_from:
+    - source
+  labels:
+     io.rancher.sidekicks: source  
+  ports:
+    - "81:80"
 
-  source:
-    image: registry.ddev.fr/devops/docker-source:latest
-    container_name: source
-    environment:
-      - CLIENT=706 
+source:
+  image: registry.ddev.fr/devops/docker-source:latest
+  container_name: source
+  environment:
+    - CLIENT=706 
