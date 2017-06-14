@@ -1,0 +1,34 @@
+zookeeper:
+  image: jplock/zookeeper
+  ports:
+    - "2181:2181"
+    - "2888:2888"
+    - "3888:3888"
+  volumes:
+    - "/home/devops/apps/solr/zookeeper:/opt/zookeeper/data/"
+  labels:
+    io.rancher.scheduler.affinity:host_label: 'layer=ai'
+
+node1:
+  build: solr/
+  links:
+    - 'zookeeper'
+  ports:
+    - "8010:8983"
+  command: "/opt/solr/bin/solr start -f -z zookeeper"
+  volumes:
+    - "/home/devops/apps/solr/node1/:/opt/solr/server/solr/"
+  labels:
+    io.rancher.scheduler.affinity:host_label: 'layer=ai'
+  tty: true
+
+node2:
+  build: solr/
+  links:
+    - 'zookeeper'
+  command: "/opt/solr/bin/solr start -f -z zookeeper"
+  volumes:
+    - "/home/devops/apps/solr/node2/:/opt/solr/server/solr/"
+  labels:
+    io.rancher.scheduler.affinity:host_label: 'layer=ai'
+  tty: true
