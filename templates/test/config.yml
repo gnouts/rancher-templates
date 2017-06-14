@@ -1,9 +1,5 @@
----
-name: Test  App
-description: >
+name: TestApp
+description: |
   A Test App which does almost nothing of any practical value.
-version: 0.0.1-rancher1
-category: Toy Apps
-maintainer: GV
-license: Apache2
-projectURL: https://github.com/gnouts/rancher-templates.git
+version: 1
+category: "Toy Apps"
