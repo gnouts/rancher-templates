@@ -10,7 +10,11 @@
       label: Numero de client
       required: true
       default: 706
-      type: string
+      type: enum
+      options:
+       - 706
+       - 710
+       - 430
 progress-appserver:
   scale: 1
   start_on_create: true
