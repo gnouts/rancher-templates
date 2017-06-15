@@ -26,6 +26,6 @@ services:
   source:
     image: registry.ddev.fr/devops/docker-source:latest
     environment:
-      CLIENT: 706
+      CLIENT: ${CLIENT}
     labels:
       io.rancher.sidekicks: progress-appserver,tomcat,apache
