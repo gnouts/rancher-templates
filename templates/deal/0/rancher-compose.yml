@@ -4,3 +4,10 @@
   description: blabla
   uuid: erp-0
   minimum_rancher_version: v1.6.2
+   questions:
+      - variable: CLIENT
+        description: "Selectionnez ici le client à configurer dans les sources"
+        label: "Numero de client"
+        required: true
+        default: "706"
+        type: "string"
