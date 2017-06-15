@@ -1,5 +1,11 @@
-.catalog:
+version: '2'
+catalog:
   name: "ERP"
   version: "7.3"
-  description: "blabla"
+  description: blabla
   uuid: erp-0
+#.catalog:
+#  name: "ERP"
+#  version: "7.3"
+#  description: "blabla"
+#  uuid: erp-0
