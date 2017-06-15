@@ -1,5 +1,0 @@
-name: Solr
-description: |
-  Solr is the popular, blazing-fast, open source enterprise search platform built on Apache Lucene.
-version: 6.4.1
-category: Analytics
