@@ -7,7 +7,7 @@
     questions:
         - variable: client
         description: "Selectionnez ici le client à configurer dans les sources"
-        label: "Numero de client
+        label: "Numero de client"
         required: true
         default: 706
         type: string
