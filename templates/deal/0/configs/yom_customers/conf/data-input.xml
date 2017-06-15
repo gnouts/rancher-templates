@@ -1,0 +1,80 @@
+<dataConfig>
+<!-- The first element is the dataSource, in this case an HSQLDB database.
+     The path to the JDBC driver and the JDBC URL and login credentials are all specified here.
+     Other permissible attributes include whether or not to autocommit to Solr, the batchsize
+     used in the JDBC connection, a 'readOnly' flag. 
+     The password attribute is optional if there is no password set for the DB.
+-->
+ <dataSource type="JdbcDataSource" 
+             driver="oracle.jdbc.driver.OracleDriver" 
+             url="jdbc:oracle:thin:@172.30.10.6:1521/EXCHPRDB"   
+             user="devops" 
+             password="dev_prd_5"/>
+
+<!--
+Alternately the password can be encrypted as follows. This is the value obtained as a result of the command
+openssl enc -aes-128-cbc -a -salt -in pwd.txt
+password="U2FsdGVkX18QMjY0yfCqlfBMvAB4d3XkwY96L7gfO2o=" 
+WHen the password is encrypted, you must provide an extra attribute
+encryptKeyFile="/location/of/encryptionkey"
+This file should a text file with a single line containing the encrypt/decrypt password
+ 
+-->
+<script><![CDATA[
+    function startDateTransform(row){
+        // Get the timestamp and convert it to a date
+        var timeVal = row.get("CREATEDON").dateValue();
+        //alert(timeVal);
+        //var array = timeVal.split(" ");
+        //var dateVal = row.get("CREATEDON").dateValue();
+        // Put the correct date object into the original column
+        row.put("CREATEDON", timeVal); //, array[0] + "T" + array[1] + "Z");
+        return row;
+    }]]>
+</script> 
+<!-- A 'document' element follows, containing multiple 'entity' elements.
+     Note that 'entity' elements can be nested, and this allows the entity
+     relationships in the sample database to be mirrored here, so that we can
+     generate a denormalized Solr record which may include multiple features
+     for one item, for instance -->
+  <document>
+ 
+<!-- The possible attributes for the entity element are described below.
+     Entity elements may contain one or more 'field' elements, which map
+     the data source field names to Solr fields, and optionally specify
+     per-field transformations -->
+<!-- this entity is the 'root' entity. -->
+    <entity name="item"  transformer="script:startDateTransform" query="select * from mambo.CUSTOMER">
+      <field column="CUSTOMERNO" name="id" />
+      <field column="CUSTOMERNO" name="customerno" />
+      <field column="AGENTLOCATIONID" name="agentlocationid" />
+      <field column="CUSTOMERFIRSTNAME" name="customerfirstname" />
+      <field column="CUSTOMERMIDDLENAME" name="customermiddlename" />
+      <field column="CUSTOMERLASTNAME" name="customerlastname" />
+      <field column="CUSTOMERFAMILYNAME" name="customerfamilyname" />
+      <field column="CUSTOMERPOBOX" name="customerpobox" />
+      <field column="CUSTOMERADDRESS1" name="customeraddress1" />
+      <field column="CUSTOMERADDRESS2" name="customeraddress2" />
+      <field column="CUSTOMERADDRESS3" name="customeraddress3" />
+      <field column="CUSTOMERADDRESSCITY" name="customeraddresscity" />
+      <field column="CUSTOMERADDRESSSTATE" name="customeraddressstate" />
+      <field column="CUSTOMERADDRESSCOUNTRYCODE" name="customeraddresscountrycode" />
+      <field column="CUSTOMERADDRESSZIP" name="customeraddresszip" />
+      <field column="CUSTOMERPHONE" name="customerphone" />
+      <field column="CUSTOMERMOBILE" name="customermobile" />
+      <field column="CUSTOMERFAX" name="customerfax" />
+      <field column="CUSTOMEREMAIL" name="customeremail" />
+      <field column="CUSTOMEROTHERINFO" name="customerotherinfo" />
+      <field column="CUSTOMERDESCRIPTION" name="customerdescription" />
+      <field column="CUSTOMERSTATUS" name="customerstatus" />
+      <field column="CUSTOMERNOTIFICATIONSTATUS" name="customernotificationstatus" />
+      <field column="CUSTOMERTYPE" name="customertype" />
+      <field column="CUSTOMERCATEGORY" name="customercategory" />
+      <field column="DMSPICUPLOAD" name="dmspicupload" />
+      <field column="CREATEDON" name="createdon" />
+      <field column="CREATEDBY" name="createdby" />
+      <field column="MODIFIEDON" name="modifiedon" />
+      <field column="MODIFIEDBY" name="modifiedby" />  
+    </entity>   
+  </document>
+</dataConfig>

@@ -1,0 +1,6 @@
+FROM solr
+MAINTAINER Alfred francis
+ADD banana/  /opt/solr/server/solr-webapp/webapp/banana/
+RUN cp /opt/solr/dist/solr-dataimporthandler-6.3.0.jar /opt/solr/server/solr-webapp/webapp/WEB-INF/lib/solr-dataimporthandler-6.4.1.jar
+RUN cp /opt/solr/dist/solr-dataimporthandler-extras-6.3.0.jar /opt/solr/server/solr-webapp/webapp/WEB-INF/lib/solr-dataimporthandler-extras-6.4.1.jar
+ADD ojdbc6.jar /opt/solr/server/solr-webapp/webapp/WEB-INF/lib/ojdbc6.jar

@@ -1,0 +1,120 @@
+<dataConfig>
+ <dataSource type="JdbcDataSource" 
+             driver="oracle.jdbc.driver.OracleDriver" 
+             url="jdbc:oracle:thin:@172.30.10.6:1521/EXCHPRDB"   
+             user="devops" 
+             password="dev_prd_5"/>
+<script><![CDATA[
+    function startDateTransform(row){
+
+    //where ROWNUM  &lt; 10
+
+        // Get the timestamp and convert it to a date
+
+        var CUSTOMERIDISSUEDATE = row.get("CUSTOMERIDISSUEDATE") == null ? new Date(): row.get("CUSTOMERIDISSUEDATE").dateValue();
+
+        var CUSTOMERIDVALIDTHRU =  row.get("CUSTOMERIDVALIDTHRU")  == null ? new Date(): row.get("CUSTOMERIDVALIDTHRU").dateValue();
+
+        var CUSTOMERDOB =  row.get("CUSTOMERDOB")  == null ? new Date(): row.get("CUSTOMERDOB").dateValue();
+
+        var PAYINDATE =  row.get("PAYINDATE") == null ? new Date(): row.get("PAYINDATE").dateValue();
+
+        var CREATEDON =  row.get("CREATEDON") == null ? new Date(): row.get("CREATEDON").dateValue();
+
+        // Put the correct date object into the original column
+ 
+        row.put("CREATEDON", CREATEDON); 
+        row.put("CUSTOMERIDISSUEDATE", CUSTOMERIDISSUEDATE); 
+        row.put("CUSTOMERIDVALIDTHRU", CUSTOMERIDVALIDTHRU);
+        row.put("CUSTOMERDOB", CUSTOMERDOB);
+        row.put("PAYINDATE", PAYINDATE); 
+        return row;
+    }]]>
+</script> 
+ <document>
+   <entity name="yom-txns"   
+     query="select * from mambo.v_GetRemittanceTxnDetails"
+     onError="skip"
+     >
+       <field name="SENDINGAGENTCOMPANYID" column="SENDINGAGENTCOMPANYID"/>
+       <field name="AGENTLOCATIONIDFROM" column="AGENTLOCATIONIDFROM"/> 
+       <field name="CUSTOMERNO" column="CUSTOMERNO"/>
+       <field name="CUSTOMERNAME" column="CUSTOMERNAME"/>
+       <field name="CUSTOMERADDRESS" column="CUSTOMERADDRESS"/>
+       <field name="CUSTOMERPHONE" column="CUSTOMERPHONE"/>
+       <field name="CUSTOMERMOBILE" column="CUSTOMERMOBILE"/>
+       <field name="CUSTOMEREMAIL" column="CUSTOMEREMAIL"/>
+       <field name="PURPOSEOFTXN" column="PURPOSEOFTXN"/>
+       <field name="SOURCEOFINCOME" column="SOURCEOFINCOME"/>
+       <field name="CUSTOMERIDTYPE" column="CUSTOMERIDTYPE"/>
+       <field name="CUSTOMERIDOTHERTYPE" column="CUSTOMERIDOTHERTYPE"/>
+       <field name="CUSTOMERID" column="CUSTOMERID"/>
+       <field name="CUSTOMERIDISSUEDBY" column="CUSTOMERIDISSUEDBY"/>
+       <field name="CUSTOMERIDISSUEDAT" column="CUSTOMERIDISSUEDAT"/>
+       <field name="CUSTOMERIDVALIDTHRU" column="CUSTOMERIDVALIDTHRU"/>
+       <field name="CUSTOMERDOB" column="CUSTOMERDOB"/>
+       <field name="CUSTOMEREMPLOYERNAME" column="CUSTOMEREMPLOYERNAME"/>
+       <field name="CUSTOMEREMPLOYERPHONE" column="CUSTOMEREMPLOYERPHONE"/>
+       <field name="CUSTOMERGENDER" column="CUSTOMERGENDER"/>
+       <field name="CUSTOMERNATIONALITY" column="CUSTOMERNATIONALITY"/>
+       <field name="CUSTOMEROCCUPATION" column="CUSTOMEROCCUPATION"/>
+       <field name="BENEFICIARYNAME" column="BENEFICIARYNAME"/>
+       <field name="BENEFICIARYPHONE" column="BENEFICIARYPHONE"/>
+       <field name="BENEFICIARYMOBILE" column="BENEFICIARYMOBILE"/>
+       <field name="BENEFICIARYEMAIL" column="BENEFICIARYEMAIL"/>
+       <field name="BENEFICIARYADDRESS" column="BENEFICIARYADDRESS"/>
+       <field name="BENEFICIARYNATIONALITY" column="BENEFICIARYNATIONALITY"/>
+       <field name="BENEFICIARYACCOUNTCCY" column="BENEFICIARYACCOUNTCCY"/>
+       <field name="BENEFICIARYACCOUNTCONVERTIBLE" column="BENEFICIARYACCOUNTCONVERTIBLE"/>
+       <field name="BENEFICIARYACCOUNTNAME" column="BENEFICIARYACCOUNTNAME"/>
+       <field name="BENEFICIARYBANKNAME" column="BENEFICIARYBANKNAME"/>
+       <field name="BENEFICIARYBANKBRANCHNAME" column="BENEFICIARYBANKBRANCHNAME"/>
+       <field name="BENEFICIARYRELATION" column="BENEFICIARYRELATION"/>
+       <field name="BENEFICIARYDRAWEEBANK4V" column="BENEFICIARYDRAWEEBANK4V"/>
+       <field name="BENEFICIARYDRAWEEBKBRANCH4V" column="BENEFICIARYDRAWEEBKBRANCH4V"/>
+       <field name="DRAWEEBANK" column="DRAWEEBANK"/>
+       <field name="DRAWEEBKBRANCH" column="DRAWEEBKBRANCH"/>
+       <field name="BENEFICIARYBANKACCOUNTNO" column="BENEFICIARYBANKACCOUNTNO"/>
+       <field name="IBAN" column="IBAN"/>
+       <field name="LREMITNO" column="LREMITNO"/>
+       <field name="AGENTNAME" column="AGENTNAME"/>
+       <field name="SERVICEPROVIDERCODE" column="SERVICEPROVIDERCODE"/>
+       <field name="PAYOUTCOUNTRY" column="PAYOUTCOUNTRY"/>
+       <field name="PAYINCOUNTRY" column="PAYINCOUNTRY"/>
+       <field name="AGENTTXNREFNO" column="AGENTTXNREFNO"/>
+       <field name="DELIVERYOPTION" column="DELIVERYOPTION"/>
+       <field name="PAYINDATE" column="PAYINDATE"/>
+       <field name="PAYINCCY" column="PAYINCCY"/>
+       <field name="PAYOUTCCY" column="PAYOUTCCY"/>
+       <field name="PAYINCCYROUNDING" column="PAYINCCYROUNDING"/>
+       <field name="PAYOUTCCYROUNDING" column="PAYOUTCCYROUNDING"/>
+       <field name="PAYMENTMODE" column="PAYMENTMODE"/>
+       <field name="PAYOUTAMOUNT" column="PAYOUTAMOUNT"/>
+       <field name="PAYINAMOUNT" column="PAYINAMOUNT"/>
+       <field name="COMMISSION" column="COMMISSION"/>
+       <field name="TOTALPAYINAMOUNT" column="TOTALPAYINAMOUNT"/>
+       <field name="CREATEDBY" column="CREATEDBY"/>
+       <field name="CREATEDON" column="CREATEDON"/>
+       <field name="XCHGRATEPAYINTOPAYOUT" column="XCHGRATEPAYINTOPAYOUT"/>
+       <field name="STATUS" column="STATUS"/>
+       <field name="TXNTYPE" column="TXNTYPE"/>
+       <field name="RECEIVERIDISSUEDATE" column="RECEIVERIDISSUEDATE"/>
+       <field name="RECEIVERIDVALIDTHRU" column="RECEIVERIDVALIDTHRU"/>
+       <field name="INSTRUMENTTYPEDESC" column="INSTRUMENTTYPEDESC"/>
+       <field name="INSTRUMENTTYPE" column="INSTRUMENTTYPE"/>
+       <field name="BANKBRANCHSWIFTCODE1" column="BANKBRANCHSWIFTCODE1"/>
+       <field name="BANKBRANCHSWIFTCODE2" column="BANKBRANCHSWIFTCODE2"/>
+       <field name="BANKBRANCHSORTCODE" column="BANKBRANCHSORTCODE"/>
+       <field name="ACHROUTINGNO" column="ACHROUTINGNO"/>
+       <field name="MICR" column="MICR"/>
+       <field name="ROUTINGNO" column="ROUTINGNO"/>
+       <field name="EFTCODE" column="EFTCODE"/>
+       <field name="BIC" column="BIC"/>
+       <field name="COMPANYNAME" column="COMPANYNAME"/>
+       <field name="TAX" column="TAX"/>
+       <field name="BENEFICIARYDOB" column="BENEFICIARYDOB"/>
+       <field name="BENEFICIARYIDTYPE" column="BENEFICIARYIDTYPE"/>
+       <field name="BENEFICIARYID" column="BENEFICIARYID"/>        
+   </entity>
+ </document>
+</dataConfig>
