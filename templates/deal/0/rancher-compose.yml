@@ -4,8 +4,14 @@ catalog:
   version: "7.3"
   description: blabla
   uuid: erp-0
-#.catalog:
-#  name: "ERP"
-#  version: "7.3"
-#  description: "blabla"
-#  uuid: erp-0
+  minimum_rancher_version: v1.6.2
+  questions:
+    - variable: "CLIENT"
+    label: "String"
+    required: true
+    default: "706"
+    type: enum
+    options:
+      - 706
+      - 710
+      - 460
