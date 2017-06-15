@@ -5,3 +5,9 @@ catalog:
   description: blabla
   uuid: erp-0
   minimum_rancher_version: v1.6.2
+  questions:
+    - variable: "CLIENT"
+    label: "String"
+    required: true
+    default: "706"
+    type: "string"
