@@ -15,3 +15,16 @@ catalog:
       - 706
       - 710
       - 460
+services:
+  progress-appserver:
+    scale: 1
+    start_on_create: true
+  apache:
+    scale: 1
+    start_on_create: true
+  tomcat:
+    scale: 1
+    start_on_create: true
+  source:
+    scale: 1
+    start_on_create: true
