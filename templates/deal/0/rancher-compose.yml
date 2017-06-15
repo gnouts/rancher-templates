@@ -5,7 +5,7 @@
     uuid: erp-0
     minimum_rancher_version: v1.6.2
     questions:
-        - variable: client
+        - variable: clientclient
         description: selectionnez le numero client
         label: Numero de client
         required: true
