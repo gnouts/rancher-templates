@@ -1,16 +1,16 @@
 .catalog:
-    name: "ERP"
-    version: "7.3"
-    description: blabla
-    uuid: erp-0
-    minimum_rancher_version: v1.6.2
-    questions:
-        - variable: clientclient
-          description: selectionnez le numero client
-          label: Numero de client
-          required: true
-          default: 706
-          type: string
+  name: "ERP"
+  version: "7.3"
+  description: blabla
+  uuid: erp-0
+  minimum_rancher_version: v1.6.2
+  questions:
+    - variable: clientclient
+      description: selectionnez le numero client
+      label: Numero de client
+      required: true
+      default: 706
+      type: string
 progress-appserver:
   scale: 1
   start_on_create: true
