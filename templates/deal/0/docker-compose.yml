@@ -1,31 +1,29 @@
-version: '2'
-services:
-  source:
-    image: registry.ddev.fr/devops/docker-source:latest
-    environment:
-      CLIENT: '706'
-    labels:
-      io.rancher.sidekicks: progress-appserver,tomcat,apache
-  progress-appserver:
-    image: registry.ddev.fr/devops/docker-progress:latest
-    environment:
-      APPLIC: /deal
-      DLC: /usr/dlc
-      WRKDIR: /deal/travail
-    volumes_from:
-    - source
-    ports:
-    - 9191:9090/tcp
-  apache:
-    image: registry.ddev.fr/devops/docker-php:5.3-apache
-    volumes_from:
-    - source
-    ports:
-    - 81:80/tcp
-  tomcat:
-    image: registry.ddev.fr/devops/docker-tomcat:8.5-jre8
-    volumes_from:
-    - source
-    - progress-appserver
-    ports:
-    - 8181:8080/tcp
+source:
+  image: registry.ddev.fr/devops/docker-source:latest
+  environment:
+    CLIENT: '706'
+  labels:
+    io.rancher.sidekicks: progress-appserver,tomcat,apache
+progress-appserver:
+  image: registry.ddev.fr/devops/docker-progress:latest
+  environment:
+    APPLIC: /deal
+    DLC: /usr/dlc
+    WRKDIR: /deal/travail
+  volumes_from:
+  - source
+  ports:
+  - 9191:9090/tcp
+apache:
+  image: registry.ddev.fr/devops/docker-php:5.3-apache
+  volumes_from:
+  - source
+  ports:
+  - 81:80/tcp
+tomcat:
+  image: registry.ddev.fr/devops/docker-tomcat:8.5-jre8
+  volumes_from:
+  - source
+  - progress-appserver
+  ports:
+  - 8181:8080/tcp
