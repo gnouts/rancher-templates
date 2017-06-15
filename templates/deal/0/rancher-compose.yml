@@ -1,5 +1,4 @@
-version: '2'
-catalog:
+.catalog:
   name: "ERP"
   version: "7.3"
   description: blabla
