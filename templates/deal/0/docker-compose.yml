@@ -9,20 +9,20 @@ services:
     volumes_from:
     - source
     ports:
-    - 9191:9090/tcp
+    - 9090/tcp
   apache:
     image: registry.ddev.fr/devops/docker-php:${PHP_VERSION}
     volumes_from:
     - source
     ports:
-    - 81:80/tcp
+    - 80/tcp
   tomcat:
     image: registry.ddev.fr/devops/docker-tomcat:${TOMCAT_VERSION}
     volumes_from:
     - source
     - progress-appserver
     ports:
-    - 8181:8080/tcp
+    - 8080/tcp
   source:
     image: registry.ddev.fr/devops/docker-source:latest
     environment:
