@@ -6,40 +6,31 @@
   minimum_rancher_version: v1.6.2
   questions:
     - variable: CLIENT
-      description: "Selectionnez le numéro client pour configurer les sources"
-      label: "Numéro de client"
+      description: ""
+      label: "Version"
       required: true
-      default: 706
+      default: 7.06
       type: enum
       options:
-       - 706
-       - 710
-       - 430
-    - variable: PROGRESS_VERSION
-      description: "Tag du conteneur Progress à utiliser"
-      label: "Version de Progress"
+       - 7.06
+    - variable: PATH_UI
+      description: "path to append to *domain.com* to publicly access the UI"
+      label: "Path to access web UI"
       required: true
-      default: latest
-      type: enum
-      options:
-       - latest
-    - variable: TOMCAT_VERSION
-      description: "Tag du conteneur Tomcat à utiliser"
-      label: "Version de Tomcat"
+      default: /client
+      type: string
+    - variable: PATH_TOMCAT
+      description: "path to append to *domain.com* to publicly access tomcat panel"
+      label: "Path to access Tomcat UI"
       required: true
-      default: 8.5-jre8
-      type: enum
-      options:
-       - 8.5-jre8
-    - variable: PHP_VERSION
-      description: "Tag du conteneur PHP à utiliser"
-      label: "Version de PHP"
+      default: /tomcat
+      type: string
+    - variable: PATH_ADMIN
+      description: "path to append to *domain.com* to publicly access admin panel"
+      label: "Path to access admin panel"
       required: true
-      default: 5.3-apache
-      type: enum
-      options:
-       - 5.3-apache
-       - 7-apache
+      default: /admin
+      type: string
 progress-appserver:
   scale: 1
   start_on_create: true
