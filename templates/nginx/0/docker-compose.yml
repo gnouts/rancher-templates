@@ -5,4 +5,4 @@ services:
     ports:
     - 80/tcp
     environment:
-      VIRTUAL_HOST: ${SUBDOMAIN}
+    - VIRTUAL_HOST=${SUBDOMAIN}
