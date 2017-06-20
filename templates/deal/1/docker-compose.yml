@@ -31,5 +31,5 @@ services:
     environment:
       CLIENT: ${CLIENT}
   volumes:
-    - deal
-    - dlc
+    deal
+    dlc
