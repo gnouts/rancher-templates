@@ -5,4 +5,4 @@ services:
     ports:
     - 80/tcp
     labels:
-      io.rancher.loadbalancer.target.http: 192.1.90.83:80/=80
+      foo: bar
