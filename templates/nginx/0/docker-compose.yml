@@ -3,4 +3,6 @@ services:
   nginx:
     image: registry.ddev.fr/guillaume_v/rancher-templates:${VERSION}
     ports:
-    - 80/tcp  
+    - 80/tcp
+    labels:
+      io.rancher.loadbalancer.target.http: 192.1.90.83:80/=80
