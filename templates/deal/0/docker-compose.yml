@@ -1,7 +1,7 @@
 version: '2'
 services:
   progress-appserver:
-    image: registry.ddev.fr/devops/docker-progress:${PROGRESS_VERSION}
+    image: registry.ddev.fr/devops/docker-progress:latest
     environment:
       APPLIC: /deal
       DLC: /usr/dlc
@@ -17,7 +17,7 @@ services:
     ports:
     - 80/tcp
   tomcat:
-    image: registry.ddev.fr/devops/docker-tomcat:${TOMCAT_VERSION}
+    image: registry.ddev.fr/devops/docker-tomcat:8.5-jre8
     volumes_from:
     - source
     - progress-appserver
