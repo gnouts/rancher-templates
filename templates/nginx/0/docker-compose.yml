@@ -4,5 +4,5 @@ services:
     image: registry.ddev.fr/guillaume_v/rancher-templates:${VERSION}
     ports:
     - 80/tcp
-    labels:
-      foo: bar
+    environment:
+      VIRTUAL_HOST: ${SUBDOMAIN}
