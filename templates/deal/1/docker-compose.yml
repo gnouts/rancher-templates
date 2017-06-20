@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   progress-appserver:
     image: registry.ddev.fr/devops/docker-progress:latest
@@ -7,29 +7,29 @@ services:
       DLC: /usr/dlc
       WRKDIR: /deal/travail
     volumes:
-    - deal:"/deal"
-    - dlc
+    - deal:/deal
+    - dlc:/usr/dlc
     ports:
     - 9090/tcp
   apache:
-    image: registry.ddev.fr/devops/docker-php:${PHP_VERSION}
+    image: registry.ddev.fr/devops/docker-php:5.3-apache
     volumes:
-    - deal:"/deal"
+    - deal:/deal
     ports:
     - 80/tcp
   tomcat:
     image: registry.ddev.fr/devops/docker-tomcat:8.5-jre8
     volumes:
-    - deal:"/deal"
-    - dlc:"/usr/dlc"
+    - deal:/deal
+    - dlc:/usr/dlc
     ports:
     - 8080/tcp
   source:
     image: registry.ddev.fr/devops/docker-source:latest
     volumes:
-      - deal
+      - deal:/deal
     environment:
-      CLIENT: ${CLIENT}
-  volumes:
-    deal
-    dlc
+      CLIENT: 706
+volumes:
+  deal: {}
+  dlc: {}
