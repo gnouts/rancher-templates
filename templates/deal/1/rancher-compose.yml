@@ -1,0 +1,151 @@
+.catalog:
+  name: "ERP"
+  version: "7.4"
+  description: blabla
+  uuid: erp-1
+  minimum_rancher_version: v1.6.2
+  questions:
+    - variable: CLIENT
+      description: "Selectionnez le numéro client pour configurer les sources"
+      label: "Numéro de client"
+      required: true
+      default: 706
+      type: enum
+      options:
+       - 086
+       - 101
+       - 169
+       - 178
+       - 188
+       - 190
+       - 196
+       - 230
+       - 238
+       - 254
+       - 273
+       - 308
+       - 309
+       - 311
+       - 325
+       - 333
+       - 334
+       - 345
+       - 352
+       - 360
+       - 361
+       - 387
+       - 389
+       - 392
+       - 395
+       - 396
+       - 401
+       - 405
+       - 415
+       - 429
+       - 435
+       - 440
+       - 443
+       - 444
+       - 445
+       - 460
+       - 462
+       - 466
+       - 470
+       - 477
+       - 479
+       - 482
+       - 485
+       - 489
+       - 500
+       - 502
+       - 504
+       - 505
+       - 509
+       - 510
+       - 513
+       - 521
+       - 523
+       - 524
+       - 525
+       - 529
+       - 535
+       - 540
+       - 543
+       - 544
+       - 556
+       - 560
+       - 567
+       - 568
+       - 588
+       - 590
+       - 591
+       - 599
+       - 600
+       - 603
+       - 606
+       - 618
+       - 620
+       - 622
+       - 625
+       - 627
+       - 628
+       - 635
+       - 638
+       - 642
+       - 646
+       - 649
+       - 653
+       - 657
+       - 659
+       - 660
+       - 667
+       - 670
+       - 671
+       - 672
+       - 676
+       - 677
+       - 678
+       - 686
+       - 687
+       - 694
+       - 696
+       - 699
+       - 701
+       - 702
+       - 703
+       - 704
+       - 705
+       - 706
+       - 709
+       - 710
+       - 732
+       - 733
+       - 734
+       - 736
+       - 738
+       - 875
+       - 990
+       - 998
+       - 999 
+    - variable: PHP_VERSION
+      description: "Selectionnez 5.3 si ERP version<=6. Selectionnez 7 si ERP version>=7"
+      label: "Version de PHP"
+      required: true
+      default: 5.3-apache
+      type: enum
+      options:
+       - 5.3-apache
+       - 7-apache
+progress-appserver:
+  scale: 1
+  start_on_create: true
+apache:
+  scale: 1
+  start_on_create: true
+tomcat:
+  scale: 1
+  start_on_create: true
+source:
+  scale: 1
+  start_on_create: true
+
