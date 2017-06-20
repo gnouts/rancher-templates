@@ -1,0 +1,19 @@
+.catalog:
+  name: "NGINX"
+  version: "1"
+  description: blabla
+  uuid: deal-0
+  minimum_rancher_version: v1.6.2
+  questions:
+    - variable: VERSION
+      description: ""
+      label: "Version nginx"
+      required: true
+      default: v1
+      type: enum
+      options:
+       - v1
+       - v2
+nginx:
+  scale: 1
+  start_on_create: true
