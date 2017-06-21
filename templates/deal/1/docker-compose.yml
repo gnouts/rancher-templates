@@ -9,6 +9,8 @@ services:
     volumes:
     - deal:/deal
     - dlc:/usr/dlc
+    ports:
+    - 9090/tcp
     labels:
       traefik.enable: "enable"
       traefik.domain: "$VHOST_PROGRESS"
@@ -18,6 +20,8 @@ services:
     image: registry.ddev.fr/devops/docker-php:5.3-apache
     volumes:
     - deal:/deal
+    ports:
+    - 80/tcp
     labels:
       traefik.enable: "enable"
       traefik.domain: "$VHOST_APACHE"
@@ -28,6 +32,8 @@ services:
     volumes:
     - deal:/deal
     - dlc:/usr/dlc
+    ports:
+    - 8080/tcp
     labels:
       traefik.enable: "enable"
       traefik.domain: "$VHOST_TOMCAT"
