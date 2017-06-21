@@ -136,6 +136,24 @@
       options:
        - 5.3-apache
        - 7-apache
+    - variable: VHOST_PROGRESS
+      description: "sous domaine pour accéder à Progress adminpanel"
+      label: "Sous domaine Progress"
+      required: true
+      default: progress
+      type: string
+      - variable: VHOST_TOMCAT
+      description: "sous domaine pour accéder à Tomcat adminpanel"
+      label: "Sous domaine Tomcat"
+      required: true
+      default: tomcat
+      type: string
+      - variable: VHOST_APACHE
+      description: "sous domaine pour accéder à Apache ERP"
+      label: "Sous domaine ERP UI"
+      required: true
+      default: deal
+      type: string
 progress-appserver:
   scale: 1
   start_on_create: true
