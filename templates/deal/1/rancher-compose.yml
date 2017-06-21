@@ -145,12 +145,39 @@
 progress-appserver:
   scale: 1
   start_on_create: true
+  health_check:
+    port: 9090
+    interval: 2000
+    initializing_timeout: 180000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    request_line: GET "/" "HTTP/1.0"
+    healthy_threshold: 2
 apache:
   scale: 1
   start_on_create: true
+  health_check:
+    port: 80
+    interval: 2000
+    initializing_timeout: 180000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    request_line: GET "/" "HTTP/1.0"
+    healthy_threshold: 2
 tomcat:
   scale: 1
   start_on_create: true
+  health_check:
+    port: 8080
+    interval: 2000
+    initializing_timeout: 180000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    request_line: GET "/" "HTTP/1.0"
+    healthy_threshold: 2
 source:
   scale: 1
   start_on_create: true
