@@ -12,6 +12,7 @@ services:
     - dlc:/usr/dlc
     ports:
     - 9090/tcp
+    network_mode: "bridge"
   apache:
     image: registry.ddev.fr/devops/docker-php:5.3-apache
     environment:
@@ -20,6 +21,7 @@ services:
     - deal:/deal
     ports:
     - 80/tcp
+    network_mode: "bridge"
   tomcat:
     image: registry.ddev.fr/devops/docker-tomcat:8.5-jre8
     environment:
@@ -29,13 +31,14 @@ services:
     - dlc:/usr/dlc
     ports:
     - 8080/tcp
+    network_mode: "bridge"
   source:
     image: registry.ddev.fr/devops/docker-source:latest
     volumes:
       - deal:/deal
     environment:
       CLIENT: 706
+    network_mode: "bridge"  
 volumes:
   deal: {}
   dlc: {}
-network_mode: "bridge"
