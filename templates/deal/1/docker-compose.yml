@@ -32,10 +32,13 @@ services:
       traefik.port: "8080"
   source:
     image: registry.ddev.fr/devops/docker-source:latest
+    tty: true
     volumes:
       - deal:/deal
     environment:
       CLIENT: 706
+    labels:
+      io.rancher.container.start_once: 'true'
 volumes:
   deal: {}
   dlc: {}
