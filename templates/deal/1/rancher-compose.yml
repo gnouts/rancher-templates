@@ -142,13 +142,13 @@
       required: true
       default: progress
       type: string
-      - variable: VHOST_TOMCAT
+    - variable: VHOST_TOMCAT
       description: "sous domaine pour accéder à Tomcat adminpanel"
       label: "Sous domaine Tomcat"
       required: true
       default: tomcat
       type: string
-      - variable: VHOST_APACHE
+    - variable: VHOST_APACHE
       description: "sous domaine pour accéder à Apache ERP"
       label: "Sous domaine ERP UI"
       required: true
