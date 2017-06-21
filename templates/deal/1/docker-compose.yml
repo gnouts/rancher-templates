@@ -6,7 +6,7 @@ services:
       APPLIC: /deal
       DLC: /usr/dlc
       WRKDIR: /deal/travail
-      VIRTUAL_HOST: ${VHOST_PROGRESS}.master.local
+      VIRTUAL_HOST: $VHOST_PROGRESS.master.local
     volumes:
     - deal:/deal
     - dlc:/usr/dlc
@@ -15,7 +15,7 @@ services:
   apache:
     image: registry.ddev.fr/devops/docker-php:5.3-apache
     environment:
-      VIRTUAL_HOST: ${VHOST_APACHE}.master.local
+      VIRTUAL_HOST: $VHOST_APACHE.master.local
     volumes:
     - deal:/deal
     ports:
@@ -23,7 +23,7 @@ services:
   tomcat:
     image: registry.ddev.fr/devops/docker-tomcat:8.5-jre8
     environment:
-      VIRTUAL_HOST: ${VHOST_TOMCAT}.master.local
+      VIRTUAL_HOST: $VHOST_TOMCAT.master.local
     volumes:
     - deal:/deal
     - dlc:/usr/dlc
