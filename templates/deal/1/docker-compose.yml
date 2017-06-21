@@ -6,39 +6,36 @@ services:
       APPLIC: /deal
       DLC: /usr/dlc
       WRKDIR: /deal/travail
-      VIRTUAL_HOST: ${VHOST_PROGRESS}.master.local
     volumes:
     - deal:/deal
     - dlc:/usr/dlc
-    ports:
-    - 9090/tcp
-    network_mode: "bridge"
+    labels:
+      traefik.enable: "enable"
+      traefik.domain: "$VHOST_PROGRESS"
+      traefik.port: "9090"
   apache:
     image: registry.ddev.fr/devops/docker-php:5.3-apache
-    environment:
-      VIRTUAL_HOST: ${VHOST_APACHE}.master.local
     volumes:
     - deal:/deal
-    ports:
-    - 80/tcp
-    network_mode: "bridge"
+    labels:
+      traefik.enable: "enable"
+      traefik.domain: "$VHOST_APACHE"
+      traefik.port: "80"
   tomcat:
     image: registry.ddev.fr/devops/docker-tomcat:8.5-jre8
-    environment:
-      VIRTUAL_HOST: ${VHOST_TOMCAT}.master.local
     volumes:
     - deal:/deal
     - dlc:/usr/dlc
-    ports:
-    - 8080/tcp
-    network_mode: "bridge"
+    labels:
+      traefik.enable: "enable"
+      traefik.domain: "$VHOST_TOMCAT"
+      traefik.port: "8080"
   source:
     image: registry.ddev.fr/devops/docker-source:latest
     volumes:
       - deal:/deal
     environment:
       CLIENT: 706
-    network_mode: "bridge"  
 volumes:
   deal: {}
   dlc: {}
