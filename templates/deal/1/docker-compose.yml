@@ -13,7 +13,7 @@ services:
     - 9090/tcp
     labels:
       traefik.enable: 'true'
-      traefik.domain: "$VHOST_PROGRESS"
+      traefik.domain: "$VHOST"
       traefik.port: "9090"
       io.rancher.container.pull_image: 'true'
   apache:
@@ -24,7 +24,7 @@ services:
     - 80/tcp
     labels:
       traefik.enable: 'true'
-      traefik.domain: "$VHOST_APACHE"
+      traefik.domain: "$VHOST"
       traefik.port: "80"
       io.rancher.container.pull_image: 'true'
   tomcat:
@@ -36,7 +36,7 @@ services:
     - 8080/tcp
     labels:
       traefik.enable: 'true'
-      traefik.domain: "$VHOST_TOMCAT"
+      traefik.domain: "$VHOST"
       traefik.port: "8080"
       io.rancher.container.pull_image: 'true'
   source:
