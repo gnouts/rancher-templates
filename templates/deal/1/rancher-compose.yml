@@ -152,7 +152,7 @@ progress-appserver:
     unhealthy_threshold: 3
     strategy: recreate
     response_timeout: 2000
-    request_line: GET "/" "HTTP/1.0"
+    request_line: ''
     healthy_threshold: 2
 apache:
   scale: 1
