@@ -147,12 +147,16 @@ progress-appserver:
   start_on_create: true
   health_check:
     port: 9090
+    #en milliseconde, verifie toutes les 2secondes
     interval: 2000
-    initializing_timeout: 180000
+    #première vérification au bout de 3min30s
+    initializing_timeout: 210000
+    #marqué comme 'unhealthy' après 3tentatives
     unhealthy_threshold: 3
     strategy: recreate
     response_timeout: 2000
-    request_line: ''
+    request_line: GET "/" "HTTP/1.0"
+    #marqué comme 'healthy' après 2 réponses
     healthy_threshold: 2
 apache:
   scale: 1
