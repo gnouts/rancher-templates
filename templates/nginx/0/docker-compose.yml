@@ -1,0 +1,8 @@
+version: '2'
+services:
+  nginx:
+    image: registry.ddev.fr/guillaume_v/rancher-templates:${VERSION}
+    ports:
+    - 80/tcp
+    environment:
+    - VIRTUAL_HOST=${SUBDOMAIN}.worker.local
