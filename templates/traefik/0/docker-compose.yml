@@ -1,7 +1,7 @@
 traefik:
   ports:
   - ${admin_port}:8000/tcp
-  - ${http_port}:${http_port}/tcp
+  - ${http_port}:8080/tcp
   - ${https_port}:${https_port}/tcp
   log_driver: ''
   labels:
