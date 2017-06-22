@@ -136,12 +136,6 @@
       options:
        - 5.3-apache
        - 7-apache
-    - variable: VHOST
-      description: "domaine pour accéder"
-      label: "domaine"
-      required: true
-      default: deal.local
-      type: string
 progress-appserver:
   scale: 1
   start_on_create: true
