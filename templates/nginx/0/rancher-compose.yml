@@ -18,7 +18,7 @@
       description: "domaine pour accéder"
       label: "domaine"
       required: true
-      default: deal.local
+      default: master.local
       type: string
 nginx:
   scale: 1
