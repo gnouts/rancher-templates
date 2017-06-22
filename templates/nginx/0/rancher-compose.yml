@@ -14,18 +14,6 @@
       options:
        - v1
        - v2
-    - variable: VHOST
-      description: "domaine pour accéder"
-      label: "domaine"
-      required: true
-      default: master.local
-      type: string
-    - variable: PORT
-      description: "Port"
-      label: "Port"
-      required: true
-      default: 8080
-      type: int
 nginx:
   scale: 1
   start_on_create: true

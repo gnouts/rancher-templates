@@ -4,6 +4,6 @@ services:
     image: registry.ddev.fr/guillaume_v/rancher-templates:${VERSION}
     labels:
       traefik.enable: 'true'
-      traefik.domain: "$VHOST"
-      traefik.port: "$PORT"
+      traefik.domain: 'docker.deal'
+      traefik.port: "80"
       io.rancher.container.pull_image: 'true'
