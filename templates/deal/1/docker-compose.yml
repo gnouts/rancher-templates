@@ -11,7 +11,7 @@ services:
     - dlc:/usr/dlc
     labels:
       traefik.enable: 'true'
-      traefik.domain: "$VHOST"
+      traefik.domain: 'docker.deal'
       traefik.port: "9090"
       io.rancher.container.pull_image: 'true'
   apache:
@@ -20,7 +20,7 @@ services:
     - deal:/deal
     labels:
       traefik.enable: 'true'
-      traefik.domain: "$VHOST"
+      traefik.domain: 'docker.deal'
       traefik.port: "80"
       io.rancher.container.pull_image: 'true'
   tomcat:
@@ -30,7 +30,7 @@ services:
     - dlc:/usr/dlc
     labels:
       traefik.enable: 'true'
-      traefik.domain: "$VHOST"
+      traefik.domain: 'docker.deal'
       traefik.port: "8080"
       io.rancher.container.pull_image: 'true'
   source:
