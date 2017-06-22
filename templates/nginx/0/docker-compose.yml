@@ -5,5 +5,5 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.domain: "$VHOST"
-      traefik.port: "80"
+      traefik.port: "8181"
       io.rancher.container.pull_image: 'true'
