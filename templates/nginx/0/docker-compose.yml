@@ -2,7 +2,8 @@ version: '2'
 services:
   nginx:
     image: registry.ddev.fr/guillaume_v/rancher-templates:${VERSION}
-    ports:
-    - 80/tcp
-    environment:
-    - VIRTUAL_HOST=${SUBDOMAIN}.worker.local
+    labels:
+      traefik.enable: 'true'
+      traefik.domain: "$VHOST"
+      traefik.port: "80"
+      io.rancher.container.pull_image: 'true'
