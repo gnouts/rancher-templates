@@ -1,12 +1,11 @@
 .catalog:
   name: "ERP"
   version: "7.4"
-  description: "blabla"
-  uuid: erp-1
+  uuid: erp-1 #incrémentez le chiffre à chaque version. l'uuid doit etre unique
   minimum_rancher_version: v1.6.2
   questions:
     - variable: CLIENT
-      description: "Selectionnez le numéro client pour configurer les sources"
+      description: "Sélectionnez le numéro client pour configurer les sources"
       label: "Numéro de client"
       required: true
       default: 706
@@ -128,14 +127,14 @@
        - 998
        - 999 
     - variable: PHP_VERSION
-      description: "Selectionnez 5.3 si ERP version<=6. Selectionnez 7 si ERP version>=7"
+      description: "Sélectionnez 5.3 si ERP version<=6. Sélectionnez 7 si ERP version>=7"
       label: "Version de PHP"
       required: true
-      default: 5.3-apache
+      default: "5.3"
       type: enum
       options:
-       - 5.3-apache
-       - 7-apache
+       - "5.3"
+       - "7"
 progress:
   scale: 1
   start_on_create: true

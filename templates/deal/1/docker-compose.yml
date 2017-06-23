@@ -15,7 +15,7 @@ services:
       traefik.port: "9090"
       io.rancher.container.pull_image: 'true'
   apache:
-    image: registry.ddev.fr/devops/docker-php:5.3-apache
+    image: registry.ddev.fr/devops/docker-php:${PHP_VERSION}-apache
     volumes:
     - deal:/deal
     labels:
