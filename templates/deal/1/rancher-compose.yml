@@ -136,7 +136,7 @@
       options:
        - 5.3-apache
        - 7-apache
-progress-appserver:
+progress:
   scale: 1
   start_on_create: true
   health_check:
