@@ -1,6 +1,6 @@
 name: Deal ERP
 description: |
-  ici la description à remplir...
-version: 7.3
+  ERP Deal avec Apache Tomcat & Progress
+#version: 7.4
 category: ERP
 maintainer: Deal Informatique
