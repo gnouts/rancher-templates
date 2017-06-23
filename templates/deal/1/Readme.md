@@ -14,12 +14,13 @@ Ce template permet de démarrer 4 conteneurs comprenant Apache+PHP, Tomcat, Prog
 
 Les services sont accessibles aux adresses : 
 
-${nom_du_service}.${nom_de_l_instance}.docker.deal:8181
+```${nom_du_service}.${nom_de_l_instance}.docker.deal:8181```
 
 
 Exemple: Si vous avez nommé votre instance 'v7-635', vous pourrez accéder aux services aux adresses suivantes
 
+```
 progress.v7-635.docker.deal:8181
 tomcat.v7-635.docker.deal:8181
 apache.v7-635.docker.deal:8181
-
+```
