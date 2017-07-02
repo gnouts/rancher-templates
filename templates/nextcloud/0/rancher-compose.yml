@@ -17,7 +17,7 @@
       description: "Ajoutez un dossier de données secondaires."
       label: "Dossier secondaire :"
       required: false
-      default: "/media/tmp" 
+      default: "" 
       type: "string"
     - variable: "DB_STORAGE"
       description: "Sélectionnez où conserver la base de données."
