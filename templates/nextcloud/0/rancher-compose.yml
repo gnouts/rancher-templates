@@ -1,6 +1,6 @@
 .catalog:
-  name: traefik
-  version: v1.3.0-rancher1
+  name: Nextcloud
+  version: v0
   description: |
     Cloud pour le taboulé
   minimum_rancher_version: v1.6.2
