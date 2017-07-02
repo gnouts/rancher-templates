@@ -1,6 +1,6 @@
 name: Deal traefik
 description: |
-  ici la description à remplir...
+  Proxy inverse configuré automatiquement, utilisant Rancher API
 version: 1
 category: ERP
 maintainer: Deal Informatique
