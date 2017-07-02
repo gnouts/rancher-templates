@@ -1,0 +1,15 @@
+docker run -d -p 389:389 -e SLAPD_PASSWORD=mysecretpassword -e SLAPD_DOMAIN=ldap.example.org dinkel/openldap
+
+version: '2'
+services:
+  ldap:
+    image: dinkel/openldap
+    depends_on:
+      - db
+    volumes:
+      - "${DATA}:/var/www/html/apps"
+      - "${VOLUME}:/data"
+    labels:
+      traefik.enable: 'true'
+      traefik.port: "80"
+      io.rancher.container.pull_image: 'true'
