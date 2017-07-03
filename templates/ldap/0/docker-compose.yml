@@ -4,8 +4,6 @@ version: '2'
 services:
   ldap:
     image: dinkel/openldap
-    depends_on:
-      - db
     volumes:
       - "${DATA}:/var/www/html/apps"
       - "${VOLUME}:/data"
