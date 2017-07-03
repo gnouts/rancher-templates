@@ -1,4 +1,4 @@
-name: traefik
+name: Traefik
 description: |
   Proxy inverse configuré automatiquement, utilisant Rancher API
 version: 1
