@@ -13,4 +13,4 @@ services:
       io.rancher.scheduler.global: 'true'
       io.rancher.container.pull_image: 'always'
     tty: true
-    image: registry.ddev.fr/guillaume_v/docker-traefik
+    image: nouts/traefik
