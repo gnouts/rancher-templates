@@ -5,6 +5,7 @@ services:
       ENDPOINT: ${endpoint}
       ACCESS_KEY: ${access_key}
       SECRET_KEY: ${secret_key}
+      MY_DOMAIN: ${domain}
     ports:
     - "${admin_port}:8080"
     - "${http_port}:80"
