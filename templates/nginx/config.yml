@@ -1,6 +1,5 @@
-name: Deal NGINX
+name: NGINX
 description: |
   ici la description à remplir...
 version: 1
-category: ERP
-maintainer: Deal Informatique
+maintainer: nouts <nouts@protonmail.com>

@@ -1,6 +1,0 @@
-name: Deal ERP
-description: |
-  ERP Deal, avec Apache, Tomcat & Progress
-#version: 7.4 #indiquez la derniere version ici. Sera selectionnez automatiquement dans le catalogue
-category: ERP
-maintainer: Deal Informatique

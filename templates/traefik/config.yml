@@ -1,6 +1,5 @@
-name: Deal traefik
+name: traefik
 description: |
   Proxy inverse configuré automatiquement, utilisant Rancher API
 version: 1
-category: ERP
-maintainer: Deal Informatique
+maintainer: nouts <nouts@protonmail.com>
