@@ -4,7 +4,7 @@
   description: |
     (Experimental) Traefik load balancer.
   minimum_rancher_version: v0.59.0
-  maintainer: "Deal"
+  maintainer: "nouts <nouts@protonmail.com>"
   uuid: traefik-2
   questions:
     - variable: "http_port"
