@@ -13,12 +13,12 @@
       required: true
       default: "/root/nextcloud/data" 
       type: "string"
-    - variable: "VOLUME"
-      description: "Ajoutez un dossier de données secondaires."
-      label: "Dossier secondaire :"
-      required: false
-      default: "" 
-      type: "string"
+#    - variable: "VOLUME"
+#      description: "Ajoutez un dossier de données secondaires."
+#      label: "Dossier secondaire :"
+#      required: false
+#      default: "" 
+#      type: "string"
 #    - variable: "DB_STORAGE"
 #      description: "Sélectionnez où conserver la base de données."
 #      label: "Base de données :"

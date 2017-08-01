@@ -2,11 +2,11 @@ version: '2'
 services:
   nextcloud:
     image: nextcloud
-    depends_on:
-      - db
+#    depends_on:
+#      - db
     volumes:
       - "${DATA}:/var/www/html"
-      - "${VOLUME}:/data"
+ #     - "${VOLUME}:/data"
     labels:
       traefik.enable: 'true'
       traefik.port: "80"
