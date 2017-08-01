@@ -5,21 +5,21 @@ services:
     depends_on:
       - db
     volumes:
-      - "${DATA}:/var/www/html/apps"
+      - "${DATA}:/var/www/html"
       - "${VOLUME}:/data"
     labels:
       traefik.enable: 'true'
       traefik.port: "80"
       io.rancher.container.pull_image: 'true'
 
-  db:
-    image: mariadb
-    volumes:
-      - "${DB_STORAGE}:/var/lib/mysql"
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWD}
-      MYSQL_DATABASE: nextcloud
-      MYSQL_USER: nextcloud
-      MYSQL_PASSWORD: ${DB_PASSWD}
-    labels:
-      io.rancher.container.pull_image: 'true'
+#  db:
+#    image: mariadb
+#    volumes:
+#      - "${DB_STORAGE}:/var/lib/mysql"
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWD}
+#      MYSQL_DATABASE: nextcloud
+#      MYSQL_USER: nextcloud
+#      MYSQL_PASSWORD: ${DB_PASSWD}
+#    labels:
+#      io.rancher.container.pull_image: 'true'

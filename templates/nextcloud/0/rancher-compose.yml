@@ -19,36 +19,36 @@
       required: false
       default: "" 
       type: "string"
-    - variable: "DB_STORAGE"
-      description: "Sélectionnez où conserver la base de données."
-      label: "Base de données :"
-      required: true
-      default: "/root/nextcloud/db" 
-      type: "string"
-    - variable: "DB_ROOT_PASSWD"
-      description: ""
-      label: "Mot de passe administrateur de la BDD :"
-      required: true
-      default: "password" 
-      type: "string"
-    - variable: "DB_PASSWD"
-      description: ""
-      label: "Mot de passe utilisateur de la BDD :"
-      required: true
-      default: "password" 
-      type: "string"
+#    - variable: "DB_STORAGE"
+#      description: "Sélectionnez où conserver la base de données."
+#      label: "Base de données :"
+#      required: true
+#      default: "/root/nextcloud/db" 
+#      type: "string"
+#    - variable: "DB_ROOT_PASSWD"
+#      description: ""
+#      label: "Mot de passe administrateur de la BDD :"
+#      required: true
+#      default: "password" 
+#      type: "string"
+#    - variable: "DB_PASSWD"
+#      description: ""
+#      label: "Mot de passe utilisateur de la BDD :"
+#      required: true
+#      default: "password" 
+#      type: "string"
 nextcloud:
   start_on_create: true
-  scale: 1
+  scale: global
   health_check:
     port: 80
     interval: 2000
-    initializing_timeout: 60000
+    initializing_timeout: 600000
     unhealthy_threshold: 3
     strategy: recreate
     response_timeout: 2000
     request_line: GET "/" "HTTP/1.0"
     healthy_threshold: 2
-db:
-  start_on_create: true
-  scale: 1
+#db:
+#  start_on_create: true
+#  scale: 1
