@@ -2,8 +2,8 @@ version: '2'
 services:
   nextcloud:
     image: nextcloud
-#    depends_on:
-#      - db
+    depends_on:
+      - nodea
     volumes:
       - "${DATA}:/var/www/html"
  #     - "${VOLUME}:/data"
