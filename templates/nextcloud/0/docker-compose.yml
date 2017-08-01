@@ -10,7 +10,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.port: "80"
-      io.rancher.container.pull_image: 'true'
+      io.rancher.scheduler.global: 'true'
+      io.rancher.container.pull_image: 'always'
 
 #  db:
 #    image: mariadb

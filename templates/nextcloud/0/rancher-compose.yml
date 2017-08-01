@@ -39,7 +39,7 @@
 #      type: "string"
 nextcloud:
   start_on_create: true
-  scale: global
+  scale: 1
   health_check:
     port: 80
     interval: 2000
